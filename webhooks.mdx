@@ -1,0 +1,92 @@
+---
+title: Webhooks
+description: Real-time notifications and event-driven integrations
+---
+
+## Webhook Overview
+
+Webhooks allow HRMex to send real-time notifications to your application when events occur. Set up endpoints to receive and process these events.
+
+<ParamField header="X-HRMex-Signature" param-type="string" required="true">
+  HMAC signature for verifying webhook authenticity.
+</ParamField>
+
+## Setting Up Webhooks
+
+<Steps>
+  <Step title="Create Endpoint" icon="server">
+    Develop a secure HTTPS endpoint to receive webhook payloads.
+  </Step>
+  <Step title="Register URL" icon="link">
+    Add your endpoint URL in the HRMex webhook settings.
+  </Step>
+  <Step title="Test Connection" icon="check-circle">
+    Send test events to verify your endpoint is working.
+  </Step>
+  <Step title="Go Live" icon="play">
+    Enable webhooks for production events.
+  </Step>
+</Steps>
+
+## Event Types
+
+HRMex sends webhooks for various HR-related events.
+
+<Tabs>
+  <Tab title="Employee Events" icon="user">
+    Notifications for hires, terminations, and status changes.
+    
+    <CodeGroup tabs="JSON">
+      ```json
+{
+  "event": "employee.hired",
+  "data": {
+    "employee_id": 123,
+    "name": "John Doe",
+    "hire_date": "2024-01-15"
+  }
+}
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Performance Events" icon="bar-chart">
+    Updates on reviews, goals, and performance metrics.
+    
+    <Callout kind="info">
+      Performance webhooks include detailed review data.
+    </Callout>
+  </Tab>
+</Tabs>
+
+## Security and Verification
+
+<Expandable title="Signature Verification" default-open="true">
+  Verify webhook authenticity using the provided signature.
+</Expandable>
+
+<Expandable title="IP Whitelisting" default-open="false">
+  Restrict webhook delivery to trusted IP addresses.
+</Expandable>
+
+## Handling Failures
+
+Implement retry logic and error handling for webhook delivery.
+
+<ResponseField name="retry_count" field-type="integer" required="false">
+  Number of delivery attempts made.
+</ResponseField>
+
+## Best Practices
+
+<ExpandableGroup>
+  <Expandable title="Idempotency" default-open="true">
+    Ensure your endpoint can handle duplicate events safely.
+  </Expandable>
+  <Expandable title="Rate Limiting" default-open="false">
+    Implement rate limiting to prevent overload.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Use webhooks to trigger automated workflows and keep systems in sync.
+</Callout>

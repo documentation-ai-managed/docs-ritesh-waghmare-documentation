@@ -1,0 +1,85 @@
+---
+title: Authentication
+description: Secure access to HRMex API endpoints
+---
+
+## Authentication Overview
+
+HRMex uses API keys for secure authentication to all endpoints. Obtain your API key from the dashboard and include it in requests.
+
+<ParamField path="api_key" param-type="string" required="true">
+  Your unique API key obtained from the HRMex dashboard.
+</ParamField>
+
+## API Key Setup
+
+<Steps>
+  <Step title="Generate Key" icon="key">
+    Log into your HRMex dashboard and navigate to API settings.
+  </Step>
+  <Step title="Copy Key" icon="copy">
+    Securely copy the generated API key.
+  </Step>
+  <Step title="Include in Headers" icon="settings">
+    Add the key to your request headers.
+  </Step>
+</Steps>
+
+## Making Authenticated Requests
+
+Include the API key in the Authorization header for all requests.
+
+<CodeGroup tabs="cURL,JavaScript,Python">
+  ```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" https://api.hrmex.com/employees
+  ```
+  ```javascript
+const headers = {
+  'Authorization': 'Bearer YOUR_API_KEY'
+};
+const response = await fetch('/api/employees', { headers });
+  ```
+  ```python
+import requests
+headers = {'Authorization': 'Bearer YOUR_API_KEY'}
+response = requests.get('https://api.hrmex.com/employees', headers=headers)
+  ```
+</CodeGroup>
+
+## Security Best Practices
+
+<Callout kind="danger">
+  Never expose your API key in client-side code or version control.
+</Callout>
+
+<Expandable title="Key Rotation" default-open="false">
+  Rotate API keys regularly to maintain security. Generate new keys and update integrations before deactivating old ones.
+</Expandable>
+
+## Rate Limiting
+
+API requests are rate-limited to prevent abuse. Monitor your usage and implement retry logic.
+
+| Rate Limit | Description |
+|------------|-------------|
+| `1000/hour` | Standard requests per hour |
+| `10000/day` | Total requests per day |
+
+## Error Handling
+
+Handle authentication errors gracefully in your application.
+
+<ResponseField name="error" field-type="string" required="true">
+  Error message describing the authentication failure.
+</ResponseField>
+
+## Troubleshooting
+
+<ExpandableGroup>
+  <Expandable title="Invalid Key" default-open="true">
+    Verify your API key is correct and active in the dashboard.
+  </Expandable>
+  <Expandable title="Rate Limit Exceeded" default-open="false">
+    Implement exponential backoff and monitor your request frequency.
+  </Expandable>
+</ExpandableGroup>

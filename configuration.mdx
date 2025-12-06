@@ -1,0 +1,98 @@
+---
+title: Configuration
+description: Set up and customize HRMex for your organization
+---
+
+## Configuration Basics
+
+Configure HRMex to match your organization's structure and workflows. Start with basic settings and expand as needed.
+
+<Steps>
+  <Step title="Access Settings" icon="settings">
+    Navigate to the configuration section in your dashboard.
+  </Step>
+  <Step title="Set Organization Details" icon="building">
+    Enter company information and organizational structure.
+  </Step>
+  <Step title="Define Roles" icon="users">
+    Create user roles and permission levels.
+  </Step>
+  <Step title="Customize Workflows" icon="workflow">
+    Set up approval processes and notification rules.
+  </Step>
+</Steps>
+
+## Organization Settings
+
+<Tabs>
+  <Tab title="General" icon="settings">
+    Basic company information and branding options.
+    
+    <ParamField query="company_name" param-type="string" required="true">
+      Official company name for displays and reports.
+    </ParamField>
+  </Tab>
+  <Tab title="Structure" icon="layers">
+    Define departments, teams, and reporting hierarchies.
+    
+    <Callout kind="info">
+      Use a flat structure for small organizations or hierarchical for larger ones.
+    </Callout>
+  </Tab>
+</Tabs>
+
+## User Management
+
+Configure user access and permissions across your organization.
+
+<CodeGroup tabs="JSON,JavaScript">
+  ```json
+{
+  "user": {
+    "id": 123,
+    "role": "manager",
+    "permissions": ["read", "write"]
+  }
+}
+  ```
+  ```javascript
+const userConfig = {
+  user: {
+    id: 123,
+    role: 'manager',
+    permissions: ['read', 'write']
+  }
+};
+  ```
+</CodeGroup>
+
+## Workflow Customization
+
+<Expandable title="Approval Processes" default-open="true">
+  Set up multi-level approvals for leave requests and expense reports.
+</Expandable>
+
+<Expandable title="Notifications" default-open="false">
+  Configure email and in-app notifications for important events.
+</Expandable>
+
+## Integration Settings
+
+<ExpandableGroup>
+  <Expandable title="Third-Party Apps" default-open="true">
+    Connect HRMex with payroll, ATS, and other HR systems.
+  </Expandable>
+  <Expandable title="Data Sync" default-open="false">
+    Schedule automatic data synchronization with external sources.
+  </Expandable>
+</ExpandableGroup>
+
+## Advanced Options
+
+<ResponseField name="config_version" field-type="string" required="true">
+  Current configuration version for tracking changes.
+</ResponseField>
+
+<Callout kind="tip">
+  Use version control for your configuration settings to track changes over time.
+</Callout>

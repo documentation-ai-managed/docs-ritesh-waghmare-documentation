@@ -1,0 +1,85 @@
+---
+title: Introduction
+description: Overview of HRMex and its core capabilities
+---
+
+## Getting Started
+
+HRMex is a comprehensive HR management platform designed to streamline employee lifecycle processes. It provides tools for onboarding, performance tracking, and organizational management. Get started with HRMex to transform your HR operations.
+
+<Columns cols={3}>
+  <Card title="Quick Setup" icon="zap" href="configuration">
+    Configure HRMex in minutes with our guided setup process.
+  </Card>
+  <Card title="API Integration" icon="code" href="authentication">
+    Integrate HRMex with your existing systems using our robust API.
+  </Card>
+  <Card title="Advanced Features" icon="settings" href="webhooks">
+    Leverage webhooks and automation to enhance your HR workflows.
+  </Card>
+</Columns>
+
+## Key Features
+
+HRMex offers a suite of features designed to make HR management efficient and effective. From employee onboarding to performance reviews, HRMex handles the complexities so you can focus on your people.
+
+<Steps>
+  <Step title="Onboard Employees" icon="user">
+    Streamline the hiring process with automated onboarding workflows.
+  </Step>
+  <Step title="Track Performance" icon="bar-chart">
+    Monitor employee performance with customizable review cycles.
+  </Step>
+  <Step title="Manage Benefits" icon="shield">
+    Administer benefits packages and ensure compliance.
+  </Step>
+  <Step title="Generate Reports" icon="file-text">
+    Create insightful reports on workforce analytics.
+  </Step>
+</Steps>
+
+## Integration Options
+
+<Tabs>
+  <Tab title="REST API" icon="code">
+    Use our RESTful API for programmatic access to HR data.
+    
+    <CodeGroup tabs="JavaScript,Python">
+      ```javascript
+const response = await fetch('/api/employees');
+const data = await response.json();
+```
+      ```python
+import requests
+response = requests.get('/api/employees')
+data = response.json()
+```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Webhooks" icon="webhook">
+    Receive real-time notifications for HR events.
+    
+    <Callout kind="info">
+      Configure webhooks in your settings to automate workflows.
+    </Callout>
+  </Tab>
+</Tabs>
+
+## Support and Resources
+
+<ExpandableGroup>
+  <Expandable title="Getting Help" default-open="true">
+    Access our comprehensive documentation, community forums, and support team.
+  </Expandable>
+  <Expandable title="Best Practices" default-open="false">
+    Learn from successful implementations and industry standards.
+  </Expandable>
+</ExpandableGroup>
+
+## Next Steps
+
+Ready to get started? Explore our configuration guide or dive into the API reference.
+
+<Callout kind="tip">
+  Start with the authentication guide to secure your integration.
+</Callout>
